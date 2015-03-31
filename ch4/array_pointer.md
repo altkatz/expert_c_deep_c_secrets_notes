@@ -46,4 +46,4 @@ main[0x100000f99]:  popq   %rbp
 main[0x100000f9a]:  retq
 ```
 
-Notice the extra instruction "movq   (%rcx), %rcx" at 0x100000f90: that's what happened when we mistreated array as pointer: the array `a` 's compile time constant address(0x1000, equals to rip(0xf90)+0x70) is mistakenly treated as the pointer variable's address, to get the pointer's value, an extra dereference is made.
+Notice the extra instruction "movq   (%rcx), %rcx" at 0x100000f90: that's what happened when we mistreated array as pointer: the array `a` 's compile time constant address(0x100001000, equals to rip(0x100000f90)+0x70) is mistakenly treated as the pointer variable's address, to get the pointer's value, an extra dereference is made.
